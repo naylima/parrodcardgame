@@ -27,7 +27,26 @@ h1 {
 .card {
     width: 117px;
     height: 146px;
-    background: #A7E9AF;
+    background-color: #A7E9AF;
     border: 1px solid #99CEA8;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card:active {
+    transform: scale(0.97);
+    transition: transform .2s;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    background-color: #A7E9AF;
+    position: absolute;
+}
+
+.back-img {
+    visibility: hidden;
 }
