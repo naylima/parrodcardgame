@@ -33,20 +33,29 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition: transform .5s;  
 }
 
 .card:active {
     transform: scale(0.97);
     transition: transform .2s;
+  }
+
+.flip.card {
+    transform:  rotateY(180deg);
 }
 
-img {
+.flip.card .front-img{
+    visibility: hidden;
+}
+
+.front-img,
+.back-img {
     width: 100px;
     height: 100px;
     background-color: #A7E9AF;
-    position: absolute;
+    position: absolute;   
 }
 
-.back-img {
-    visibility: hidden;
-}
