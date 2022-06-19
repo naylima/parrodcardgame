@@ -13,7 +13,7 @@ const imagens = [
     "tripletsparrot.gif",
     "unicornparrot.gif"
 ];
-imagens.sort(embaralhar);
+imagens.sort(embaralhar2);
 
 
 const container = document.querySelector(".container");
@@ -33,7 +33,7 @@ container.innerHTML = cardHTML + cardHTML;
 
 //embaralhar cartas - possui erros!!
 
-function embaralhar() { 
+function embaralhar2() { 
 	return Math.random() - 0.5; 
 }
 
@@ -48,11 +48,13 @@ let jogadas = 0;
 let tempo = 0;
 contarTempo();
 
-// clicar em 2 cartas
+// clicar em 2 cartas diferentes
 
 function flipCard () {
 
     if (bloqueio) return false;
+    if (this === primeiraCarta) return;
+
     this.classList.add("flip");
 
     if (!primeiraCarta) {
@@ -64,12 +66,12 @@ function flipCard () {
 
     jogadas++;
 
-    checkForMatch();
+    checarCartas();
 }
 
-// checando o match entre as duas cartas clicadas
+// checando o match entre as duas cartas clicadas através do dataset
 
-function checkForMatch() {
+function checarCartas() {
     let isMatch = primeiraCarta.dataset.card === segundaCarta.dataset.card;
 
     if (isMatch) {
@@ -89,7 +91,7 @@ function checkForMatch() {
     console.log(isMatch);
   }
   
-// desvirando as cartas
+// desvirando as cartas caso elas não deem mach
 
   function unFlipCards() {
     bloqueio = true;
@@ -101,7 +103,7 @@ function checkForMatch() {
     }, 1000);
   }
   
- // resetando a jogada
+ // resetando as cartas da jogada
   
   function resetCards(isMatch = false) {
     if (isMatch) {
@@ -124,6 +126,15 @@ function checkForMatch() {
             document.querySelector(".timer").innerHTML = tempo;
         }, 1000);     
   };
+
+//embaralhando as cartas
+
+  (function embaralhar() {
+    card.forEach(card => {
+      let ramdomico = Math.floor(Math.random() * qntdCartas);
+      card.style.order = ramdomico;
+    });
+  })();
   
   card.forEach(card => card.addEventListener("click", flipCard));
 
