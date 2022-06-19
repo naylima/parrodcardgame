@@ -34,16 +34,16 @@ h1 {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    position: relative;
-    transition: transform .5s;  
+    transform-style: preserve-3d;
+    transition: transform .3s; 
+    position: relative; 
 }
 
 .card:active {
     transform: scale(0.97);
-    transition: transform .2s;
   }
 
-.flip.card {
+.card.flip {
     transform:  rotateY(180deg);
 }
 
@@ -56,6 +56,36 @@ h1 {
     width: 100px;
     height: 100px;
     background-color: #A7E9AF;
-    position: absolute;   
+    position: absolute;  
+    backface-visibility: hidden; 
 }
 
+.back-img {
+    transform: rotateY(180deg);
+}
+
+.timer {
+    width: 80px;
+    height: 40px;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin: 5px;
+    color:#75B79E;
+    border-radius: 10px;
+    box-shadow: 0 2px 1px 2px #75B79E;
+}
+
+/* layout mobile */
+
+@media (max-width: 614px) {
+    .container {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+}
