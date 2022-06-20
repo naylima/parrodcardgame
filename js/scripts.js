@@ -1,6 +1,7 @@
 let qntdCartas = prompt("Com quantas cartas você quer jogar?");
-
+let tempo = 0;
 iniciarJogo ();
+contarTempo();
 
 function iniciarJogo () {
 
@@ -49,8 +50,6 @@ let segundaCarta;
 let bloqueio = false;
 let contador = 0;
 let jogadas = 0;
-let tempo = 0;
-contarTempo();
 
 // clicar em 2 cartas diferentes
 
@@ -86,6 +85,7 @@ function checarCartas() {
         alert(`Você ganhou em ${jogadas} jogadas e ${tempo} segundos!`);
         let jogarNovamente = prompt("Deseja jogar novamente?");
         if (jogarNovamente == "sim") {
+          tempo = 0;
           qntdCartas = prompt("Com quantas cartas você quer jogar?");
           iniciarJogo ();
         }
@@ -124,16 +124,6 @@ function checarCartas() {
     
   }
 
-   // contador de tempo de jogo  
-  
-  function contarTempo (){
-
-        setInterval( ()=>{
-            tempo++;
-            document.querySelector(".timer").innerHTML = tempo;
-        }, 1000);     
-  };
-
 //embaralhando as cartas
 
   (function embaralhar() {
@@ -144,8 +134,18 @@ function checarCartas() {
   })();
   
   card.forEach(card => card.addEventListener("click", flipCard));
-
 }
+
+ // contador de tempo de jogo  
+  
+ function contarTempo (){
+
+  setInterval( ()=>{
+      tempo++;
+      document.querySelector(".timer").innerHTML = tempo;
+  }, 1000);     
+};
+
 
 
 
