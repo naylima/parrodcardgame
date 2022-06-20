@@ -48,8 +48,8 @@ const card = document.querySelectorAll(".card");
 let primeiraCarta;
 let segundaCarta;
 let bloqueio = false;
-let contador = 0;
-let jogadas = 0;
+let contador = 0; //contador de acertos
+let jogadas = 0; // uma jogada corresponde a um par virado
 
 // clicar em 2 cartas diferentes
 
@@ -82,8 +82,9 @@ function checarCartas() {
     }
 
     if (contador == (qntdCartas/2)) {
+        jogadas = jogadas * 2; // foi requerido a quantidade de vezes que o usuário virou UMA carta no jogo.
         alert(`Você ganhou em ${jogadas} jogadas e ${tempo} segundos!`);
-        let jogarNovamente = prompt("Deseja jogar novamente?");
+        let jogarNovamente = prompt("Deseja jogar novamente? (digite sim ou não)");
         if (jogarNovamente == "sim") {
           tempo = 0;
           qntdCartas = prompt("Com quantas cartas você quer jogar?");
