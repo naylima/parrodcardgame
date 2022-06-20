@@ -1,6 +1,10 @@
 let qntdCartas = prompt("Com quantas cartas você quer jogar?");
 
-while ( qntdCartas < 4 || qntdCartas > 14 || qntdCartas%2 !== 0) {
+iniciarJogo ();
+
+function iniciarJogo () {
+
+  while ( qntdCartas < 4 || qntdCartas > 14 || qntdCartas%2 !== 0) {
     qntdCartas = prompt("Com quantas cartas você quer jogar?");
 }
 
@@ -83,7 +87,7 @@ function checarCartas() {
         let jogarNovamente = prompt("Deseja jogar novamente?");
         if (jogarNovamente == "sim") {
           qntdCartas = prompt("Com quantas cartas você quer jogar?");
-          //chamar uma função pra reiniciar o jogo
+          iniciarJogo ();
         }
         if (jogarNovamente == "não") {
           alert("Fim de jogo!");
@@ -140,4 +144,8 @@ function checarCartas() {
   })();
   
   card.forEach(card => card.addEventListener("click", flipCard));
+
+}
+
+
 
