@@ -83,14 +83,18 @@ h1 {
 
 /* layout mobile */
 
-@media (max-width: 614px) {
+@media (max-width: 950px) {
     .container {
         width: 100%;
         height: auto;
-        flex-direction: column;
+        justify-content: space-around;
     }
 
     .card {
         margin-bottom: 20px;
+    }
+
+    .timer {
+        display: none;
     }
 }
