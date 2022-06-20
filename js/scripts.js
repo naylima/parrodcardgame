@@ -31,7 +31,7 @@ for (let i = 0; i < (qntdCartas/2); i++) {
 
 container.innerHTML = cardHTML + cardHTML;
 
-//embaralhar cartas - possui erros!!
+//embaralhar imagens!!
 
 function embaralhar2() { 
 	return Math.random() - 0.5; 
@@ -85,10 +85,13 @@ function checarCartas() {
           qntdCartas = prompt("Com quantas cartas você quer jogar?");
           //chamar uma função pra reiniciar o jogo
         }
+        if (jogarNovamente == "não") {
+          alert("Fim de jogo!");
+          window. close();
+        }
     }
   
     !isMatch ? unFlipCards() : resetCards(isMatch);
-    console.log(isMatch);
   }
   
 // desvirando as cartas caso elas não deem mach

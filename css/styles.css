@@ -74,6 +74,11 @@ h1 {
     color:#75B79E;
     border-radius: 10px;
     box-shadow: 0 2px 1px 2px #75B79E;
+
+    position: fixed;
+    right: 0;
+    top: 0;
+
 }
 
 /* layout mobile */
